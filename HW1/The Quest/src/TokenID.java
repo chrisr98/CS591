@@ -37,7 +37,7 @@ public class TokenID {
 	{
 		return Arrays.toString(playerStats.get(playerNumber));
 	}
-	
+	//this is stupid
 	
 	// Print list of players
 	public static void printTokenList()

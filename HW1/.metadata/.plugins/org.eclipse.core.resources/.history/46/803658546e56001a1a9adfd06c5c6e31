@@ -1,0 +1,10 @@
+
+public class PlayerID {
+	private static int playerID;
+	
+	public PlayerID(int tokenID)
+	{
+		playerID = tokenID;
+	}
+	
+}

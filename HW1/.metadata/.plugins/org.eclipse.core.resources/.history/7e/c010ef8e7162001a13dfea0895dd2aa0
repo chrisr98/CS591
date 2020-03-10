@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+
+public class QuestInfo {
+	
+	public static ArrayList<String> Armory = new ArrayList<String>();
+	public static ArrayList<String> Dragons = new ArrayList<String>();
+	public static ArrayList<String> Exoskeletons = new ArrayList<String>();
+	public static ArrayList<String> FireSpells = new ArrayList<String>();
+	public static ArrayList<String> IceSpells = new ArrayList<String>();
+	public static ArrayList<String> LightningSpells = new ArrayList<String>();
+	public static ArrayList<String> Paladins = new ArrayList<String>();
+	public static ArrayList<String> Potions = new ArrayList<String>();
+	public static ArrayList<String> Sorcerers = new ArrayList<String>();
+	public static ArrayList<String> Spirits = new ArrayList<String>();
+	public static ArrayList<String> Warriors = new ArrayList<String>();
+	public static ArrayList<String> Weaponry = new ArrayList<String>();
+	
+	
+
+	public QuestInfo() {
+		// TODO Auto-generated constructor stub
+
+		
+		//Name/level/damage/defense/dodge chance
+		
+		
+		// Add Armory Items
+		Armory.add("Platinum_Shield       150   1   200");
+		Armory.add("Breastplate           350   3   600");
+		Armory.add("Full_Body_Armor       1000  8   1100");
+		Armory.add("Wizard_Shield         1200  10  1500");
+		Armory.add("Speed_Boots           550   4   600");
+		
+		// Add Dragons Items
+		
+		
+		Desghidorrah	 3       300       400     35
+
+		Chrysophylax     2       200       500     20
+		BunsenBurner	 4       400       500     45
+
+		Natsunomeryu 	 1       100       200     10
+
+		TheScaleless	 7       700       600     75
+
+		Kas-Ethelinh     5       600       500     60
+
+		Alexstraszan	 10      1000      9000    55
+
+		Phaarthurnax	 6       600       700     60
+
+		D-Maleficent	 9       900       950     85
+
+		TheWeatherbe 	 8       800       900     80
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

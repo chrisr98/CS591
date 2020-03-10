@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class TheQuest extends CreateBoard implements BoardGame {
+
+	
+//	CreateBoard board = new CreateBoard();
+	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	int row = 0;
+	int column = 0;
+	TokenID player = new TokenID();
+	
+	public TheQuest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int isEnded(CreateBoard board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int run() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean playerMoves(positionTTT move, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public positionTTT validate(int player, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

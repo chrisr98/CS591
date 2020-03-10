@@ -1,0 +1,6 @@
+
+public interface BoardGame {
+	int isEnded();
+	int run();
+	boolean playerMoves();
+}

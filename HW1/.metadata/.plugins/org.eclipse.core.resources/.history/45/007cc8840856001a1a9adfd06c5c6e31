@@ -1,0 +1,72 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ */
+
+/**
+ * @author chrisr98
+ *
+ */
+public class CreateBoard 
+{
+	public List<positionTTT> createTicTacToeBoard(int size)
+	{
+		//create a TicTacToe board and store it in a list
+		List<positionTTT> boardTicTacToe = new ArrayList<positionTTT>();
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				boardTicTacToe.add(new positionTTT(i, j));
+			}
+		}
+		
+		return boardTicTacToe;
+	}
+
+	
+	public List<List<positionTTT>> initializeWinningLines(int boardSize)
+	{
+		//create a list of winning line so that the game will "brute-force" check 
+		//if a player satisfied any winning condition(s).
+		List<List<positionTTT>> winningLines = new ArrayList<List<positionTTT>>();
+				
+		//Win on x-axis
+		List<positionTTT> oneWinCondtion = new ArrayList<positionTTT>();;
+		for (int i = 0; i < boardSize; i++) {
+			for (int j = 0; j < boardSize; j++) {
+				oneWinCondtion.add(new positionTTT(i, j, 1));
+			}
+			winningLines.add(oneWinCondtion);
+			oneWinCondtion = new ArrayList<positionTTT>();
+		}
+		
+
+		// Win on y-axis
+		oneWinCondtion = new ArrayList<positionTTT>();
+		for (int i = 0; i < boardSize; i++) {
+			for (int j = 0; j < boardSize; j++) {
+				oneWinCondtion.add(new positionTTT(j, i, 1));
+			}
+			winningLines.add(oneWinCondtion);
+			oneWinCondtion = new ArrayList<positionTTT>();
+		}
+		
+		
+		// Win diagonally
+		oneWinCondtion = new ArrayList<positionTTT>();
+		for (int i = 0; i < boardSize; i++) {
+			oneWinCondtion.add(new positionTTT(i, i, 1));
+		}
+		winningLines.add(oneWinCondtion);
+		
+		
+		oneWinCondtion = new ArrayList<positionTTT>();
+		for (int i = 0, j = boardSize - 1; i < boardSize; i++, j--) {
+			oneWinCondtion.add(new positionTTT(j, i, 1));
+		}
+		winningLines.add(oneWinCondtion);
+
+		return winningLines;
+	}
+}

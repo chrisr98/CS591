@@ -1,0 +1,12 @@
+ 
+public class TokenID {
+
+	public static String[] playerTokens;
+	public static void TwoPlayerTokens()
+	{
+		playerTokens = new String[2];
+		playerTokens[0] = "X";
+		playerTokens[1] = "O";
+		
+	}
+}

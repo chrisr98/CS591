@@ -1,0 +1,8 @@
+import java.util.List;
+
+public interface BoardGame {
+	int isEnded(CreateBoard board, int size);
+	int run();
+	boolean playerMoves(positionTTT move, List<positionTTT> board);
+	positionTTT validate(int player, List<positionTTT> board);
+}

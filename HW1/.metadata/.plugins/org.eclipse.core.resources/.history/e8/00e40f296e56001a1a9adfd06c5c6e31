@@ -1,0 +1,4 @@
+
+public class PlayerID {
+	private static int playerToken;
+}

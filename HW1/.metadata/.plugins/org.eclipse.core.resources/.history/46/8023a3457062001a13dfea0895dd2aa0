@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+
+public class QuestInfo {
+	
+	public static ArrayList<String> Armory = new ArrayList<String>();
+	public static ArrayList<String> Dragons = new ArrayList<String>();
+	public static ArrayList<String> Exoskeletons = new ArrayList<String>();
+	public static ArrayList<String> FireSpells = new ArrayList<String>();
+	public static ArrayList<String> IceSpells = new ArrayList<String>();
+	public static ArrayList<String> LightningSpells = new ArrayList<String>();
+	public static ArrayList<String> Paladins = new ArrayList<String>();
+	public static ArrayList<String> Potions = new ArrayList<String>();
+	public static ArrayList<String> Sorcerers = new ArrayList<String>();
+	public static ArrayList<String> Spirits = new ArrayList<String>();
+	public static ArrayList<String> Warriors = new ArrayList<String>();
+	public static ArrayList<String> Weaponry = new ArrayList<String>();
+	
+	
+
+	public QuestInfo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

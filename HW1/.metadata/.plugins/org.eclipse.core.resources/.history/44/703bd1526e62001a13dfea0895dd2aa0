@@ -1,0 +1,105 @@
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class TheQuest extends CreateBoard implements BoardGame {
+
+	
+	CreateBoard board;
+	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	int row = 8;
+	int column = 8;
+	TokenID players = new TokenID();
+	
+	public TheQuest() {
+		// TODO Auto-generated constructor stub\
+		board.createTicTacToeBoard(row, column);
+		
+	}
+	
+	
+	// Checks to see if game is over and the win condition
+	@Override
+	public int isEnded(CreateBoard board) {
+		// TODO Auto-generated method stub
+		
+		// Pseudo code remember to change
+		boolean playerDead = true;
+		if (!playerDead)
+		{
+			System.out.println("Player Died");
+			return 0;
+		} 
+		else 
+		{
+			System.out.println("You exited game");
+			return 1;
+		}
+	}
+
+
+	 // checks to see if player move is valid and updates board if it is
+	@Override
+	public boolean playerMoves(positionTTT move, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	// Helper function to help validate player move if they keep inputing wrong thing
+	@Override
+	public positionTTT validate(int player, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	//Run the game
+	@Override
+	public int run() {
+		// TODO Auto-generated method stub
+
+		//Sets up the info at the beginning
+		System.out.println("Welcome to The Quest!");
+		System.out.println("You can move using 'W','A','S',and 'D'");
+		System.out.println("To quit press Q. ");
+		System.out.println("***Note: You cannot quit while in a fight or in the market.***");
+		
+		//Ask who would like to go first
+		System.out.println("***Note: You cannot have more than 3 heroes.***");
+		System.out.println("How many heroes would you like?");
+		
+		
+		
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		
+		
+		
+		// If user does not input Int, it stops everything
+		try {
+			// Initialize who goes first based on user input
+			int answer = scan.nextInt();
+			
+			while (answer > 3) {
+				System.out.println("You asked for more than 3 heroes");
+				System.out.println("***Note: You cannot have more than 3 heroes.***");
+				System.out.println("How many heroes would you like?");
+				answer = scan.nextInt();
+			}
+			
+			players = new TokenID(answer);
+
+		} catch (InputMismatchException e) {
+			// TODO: handle exception
+			return -100;
+		} 
+		return 0;
+	}	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}

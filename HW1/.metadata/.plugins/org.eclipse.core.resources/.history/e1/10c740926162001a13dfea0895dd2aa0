@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public interface BoardGame {
+	CreateBoard board = new createTicTacToeBoard();
+	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	int boardSize = 3;
+	TokenID player = new TokenID(2);
+	
+	int isEnded(CreateBoard board);
+	int run();
+	boolean playerMoves(positionTTT move, List<positionTTT> board);
+	positionTTT validate(int player, List<positionTTT> board);
+}

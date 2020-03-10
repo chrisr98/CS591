@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+public class PlayerID {
+	private static String playerID;
+	public static ArrayList<String> playerTokens = new ArrayList<String>();
+	
+	public PlayerID(int numID, String tokenID)
+	{
+		playerID = tokenID;
+	}
+	
+}

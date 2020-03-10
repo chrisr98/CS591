@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+
+public class TokenID {
+
+	public static ArrayList<Integer> playerTokens = new ArrayList<Integer>();
+	
+	
+	public static void TokenID(int players)
+	{
+		for (int i = 0; i < players; i++) {
+			playerTokens.add(i);
+		}
+	}
+	
+	
+	
+	public static void printTokenList()
+	{
+		for (int i = 0; i < playerTokens.size(); i++) {
+			System.out.printf("%d, ", playerTokens.get(i));
+		}
+		
+	}
+}

@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class TheQuest extends CreateBoard implements BoardGame {
+
+	
+	CreateBoard board;
+	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	int row = 0;
+	int column = 0;
+	TokenID player = new TokenID();
+	
+	public TheQuest() {
+		// TODO Auto-generated constructor stub\
+		board.createTicTacToeBoard(8, 8);
+	}
+
+	@Override
+	public int isEnded(CreateBoard board) {
+		// TODO Auto-generated method stub
+		
+		// Pseudo code remember to change
+		boolean playerDead = true;
+		if (!playerDead)
+		{
+			System.out.println("Player Died");
+			return 0;
+		} 
+		else 
+		{
+			System.out.println("You exited game");
+			return 1;
+		}
+	}
+
+
+
+	@Override
+	public boolean playerMoves(positionTTT move, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public positionTTT validate(int player, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+	@Override
+	public int run() {
+		// TODO Auto-generated method stub
+		return 0;
+	}	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}

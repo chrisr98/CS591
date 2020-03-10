@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class PlayerID {
+	private static String playerID;
+	private static ArrayList<String> playerTokens = new ArrayList<String>();
+	private static ArrayList<Integer> listOfIntegers = new ArrayList<Integer>();
+	
+	private static List<ArrayList> listOfMixedTypes = new ArrayList<ArrayList>();
+
+	
+	
+	
+	
+	
+	public PlayerID(int numID, String tokenID)
+	{
+		
+		listOfMixedTypes.add(listOfStrings);
+	}
+	
+}

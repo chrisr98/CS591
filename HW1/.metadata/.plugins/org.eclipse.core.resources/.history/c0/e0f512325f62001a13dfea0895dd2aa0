@@ -1,0 +1,4 @@
+
+public interface BoardGame {
+	private int isEnded();
+}

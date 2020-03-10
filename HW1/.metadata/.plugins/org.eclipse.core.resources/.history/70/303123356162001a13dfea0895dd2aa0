@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public interface BoardGame {
+	private CreateBoard board;
+	private List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	private int boardSize = 3;
+	private TokenID player = new TokenID(2);
+	
+	int isEnded(CreateBoard board);
+	int run();
+	boolean playerMoves(positionTTT move, List<positionTTT> board);
+	positionTTT validate(int player, List<positionTTT> board);
+}

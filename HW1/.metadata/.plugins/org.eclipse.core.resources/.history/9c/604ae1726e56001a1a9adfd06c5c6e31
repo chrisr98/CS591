@@ -1,0 +1,10 @@
+
+public class PlayerID {
+	private static String playerID;
+	
+	public PlayerID(int numID, String tokenID)
+	{
+		playerID = tokenID;
+	}
+	
+}

@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class TokenID {
+
+	public static List<Integer> playerTokens;
+	
+	public static void TokenID(int players)
+	{
+		
+	}
+	
+	public static void TwoPlayerTokens()
+	{
+		//This is to be used if any board games only use 2 tokens 
+		playerTokens = new int[2];
+		playerTokens[0] = 1;
+		playerTokens[1] = 2;
+		
+	}
+	
+	public static void printTokenList()
+	{
+		System.out.println(Arrays.toString(playerTokens));
+	}
+}

@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Keeps a list of players 
+
+public class TokenID {
+
+	public static ArrayList<Integer> playerTokens = new ArrayList<Integer>();
+	
+	private static ArrayList<String> playerSymbol = new ArrayList<String>();
+	
+	private static List<ArrayList<E>> listOfMixedTypes = new ArrayList<ArrayList<E>>();
+
+	
+
+	
+	public TokenID() 
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	// Add number players to the list
+	public TokenID(int playerID, String playerInfo)
+	{
+		playerSymbol.add(playerInfo);
+		playerTokens.add(playerID);
+		listOfMixedTypes.add(playerTokens);
+		listOfMixedTypes.add(playerSymbol);
+		
+	}
+	
+	// Returns player number/ID
+	public int getPlayer(int playerNumber)
+	{
+		return playerTokens.get(playerNumber-1);
+	}
+	
+	
+	// Print list of players
+	public static void printTokenList()
+	{
+		System.out.printf("List of players: %n");
+		for (int i = 0; i < playerTokens.size(); i++) {
+			System.out.printf("Player %d %n", playerTokens.get(i));
+		}
+		
+	}
+}

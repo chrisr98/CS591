@@ -1,0 +1,8 @@
+
+public class QuestInfo {
+
+	public QuestInfo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

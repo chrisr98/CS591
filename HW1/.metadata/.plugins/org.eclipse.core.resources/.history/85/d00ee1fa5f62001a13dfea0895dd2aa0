@@ -1,0 +1,5 @@
+
+public interface BoardGame {
+	int isEnded();
+	int run();
+}

@@ -1,0 +1,153 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class TheQuest extends CreateBoard implements BoardGame {
+
+	
+	CreateBoard board = new CreateBoard();
+	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	int row = 8;
+	int column = 8;
+	TokenID players = new TokenID();
+	static QuestInfo questInf = new QuestInfo();
+	public TheQuest() {
+		// TODO Auto-generated constructor stub\
+		board.createTicTacToeBoard(row, column);
+		
+	}
+	
+	
+	// Checks to see if game is over and the win condition
+	@Override
+	public int isEnded(CreateBoard board) {
+		// TODO Auto-generated method stub
+		
+		// Pseudo code remember to change
+		boolean playerDead = true;
+		if (!playerDead) {
+			System.out.println("Player Died");
+			return 0;
+		} 
+		else {
+			System.out.println("You exited game");
+			return 1;
+		}
+	}
+
+
+	 // checks to see if player move is valid and updates board if it is
+	@Override
+	public boolean playerMoves(positionTTT move, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	// Helper function to help validate player move if they keep inputing wrong thing
+	@Override
+	public positionTTT validate(int player, List<positionTTT> board) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	//Run the game
+	@Override
+	public int run() {
+		// TODO Auto-generated method stub
+
+		//Sets up the info at the beginning
+		System.out.println("Welcome to The Quest!");
+		System.out.println("You can move using 'W','A','S',and 'D'");
+		System.out.println("\nTo quit press Q. ");
+		System.out.println("***Note: You cannot quit while in a fight or in the market.***\n");
+		
+		//Ask how many heroes
+		System.out.println("How many heroes would you like? ***Note: You cannot have more than 3 heroes.***");
+		
+		
+		
+		
+		
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		int numHeroes;
+		
+		
+		// If user does not input Int, it stops everything
+		try {
+			// Initialize who goes first based on user input
+			numHeroes = scan.nextInt();
+			
+			while (numHeroes > 3) {
+				System.out.println("You asked for more than 3 heroes");
+				System.out.println("***Note: You cannot have more than 3 heroes.***");
+				System.out.println("How many heroes would you like?");
+				numHeroes = scan.nextInt();
+			}
+		} catch (InputMismatchException e) {
+			// TODO: handle exception
+			System.out.println("Must enter a number!");
+			scan.close();
+			return -100;
+		}
+		
+		try {
+			System.out.println("You can now select 3 heroes");
+			int heroCount = 1;
+			while (heroCount <= numHeroes) {
+				System.out.printf("Time to choose a class for your hero #%d", heroCount);
+				System.out.println("\nFor Paladins enter 1");
+				System.out.println("For Sorcerers enter 2");
+				System.out.println("For Warriors enter 3");
+				int heroType = scan.nextInt();
+				
+				if(heroType == 1) {
+					heroCount+=1;
+					System.out.println("Choose a Paladins");
+					for (int i = 0; i < QuestInfo.Paladins.size(); i++) {
+						System.out.println(i+1 + " --> ");
+						System.out.printf("%s: %s %s %s %s %s %s %n", questInf.Paladins.get(i)[0], questInf.Paladins.get(i)[1], questInf.Paladins.get(i)[2], questInf.Paladins.get(i)[3], questInf.Paladins.get(i)[4], questInf.Paladins.get(i)[5], questInf.Paladins.get(i)[6]);
+					}
+					
+				} else if(heroType == 2) {
+					heroCount+=1;
+					System.out.println("Choose a Sorcerer");
+					for (int i = 0; i < QuestInfo.Sorcerers.size(); i++) {
+						System.out.print(i+1 + " --> ");
+						System.out.printf("%s: %s %s %s %s %s %s %n", questInf.Sorcerers.get(i)[0], questInf.Sorcerers.get(i)[1], questInf.Sorcerers.get(i)[2], questInf.Sorcerers.get(i)[3], questInf.Sorcerers.get(i)[4], questInf.Sorcerers.get(i)[5], questInf.Sorcerers.get(i)[6]);
+					}
+					
+				} else if(heroType == 3) {
+					heroCount+=1;
+					System.out.println("Choose a Warrior");
+					for (int i = 0; i < QuestInfo.Warriors.size(); i++) {
+						System.out.println(i+1 + " --> ");
+						System.out.printf("%s: %s %s %s %s %s %s %n", questInf.Warriors.get(i)[0], questInf.Warriors.get(i)[1], questInf.Warriors.get(i)[2], questInf.Warriors.get(i)[3], questInf.Warriors.get(i)[4], questInf.Warriors.get(i)[5], questInf.Warriors.get(i)[6]);
+					}
+					
+				} else {
+					System.out.println("Class type does not exists");
+				}
+				
+			}
+		} catch (InputMismatchException e) {
+			// TODO: handle exception
+			System.out.println("Must enter a number!");
+			scan.close();
+			return -100;
+		}
+		
+		
+		scan.close();
+		return 0;
+	}	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}

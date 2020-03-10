@@ -1,0 +1,187 @@
+import java.util.ArrayList;
+
+public class QuestInfo {
+	
+	public static ArrayList<String[]> Armory = new ArrayList<String[]>();
+	public static ArrayList<String> Dragons = new ArrayList<String>();
+	public static ArrayList<String> Exoskeletons = new ArrayList<String>();
+	public static ArrayList<String> FireSpells = new ArrayList<String>();
+	public static ArrayList<String> IceSpells = new ArrayList<String>();
+	public static ArrayList<String> LightningSpells = new ArrayList<String>();
+	public static ArrayList<String> Paladins = new ArrayList<String>();
+	public static ArrayList<String> Potions = new ArrayList<String>();
+	public static ArrayList<String> Sorcerers = new ArrayList<String>();
+	public static ArrayList<String> Spirits = new ArrayList<String>();
+	public static ArrayList<String> Warriors = new ArrayList<String>();
+	public static ArrayList<String> Weaponry = new ArrayList<String>();
+	
+	
+
+	public QuestInfo() {
+		// TODO Auto-generated constructor stub
+		
+		// Add Armory Items
+		String[] Platinum_Shield = {"Platinum_Shield", "150", "1", "200"};
+		String[] Breastplate = {"Breastplate", "350", "3", "600"};
+		String[] Full_Body_Armor = {"Full_Body_Armor", "1000", "8", "1100"};
+		String[] Wizard_Shield = {"Wizard_Shield", "1200", "10", "1500"};
+		String[] Speed_Boots = {"Speed_Boots", "550", "4", "600"};
+		
+		Armory.add(Platinum_Shield);
+		Armory.add(Breastplate);
+		Armory.add(Full_Body_Armor);
+		Armory.add(Wizard_Shield);
+		Armory.add(Speed_Boots);
+		
+		// Add Dragons Items
+		String[] Desghidorrah = {"Desghidorrah", "", "", "", ""}
+		String[] Chrysophylax = {"Chrysophylax", "", "", "", ""}
+		String[] BunsenBurner = {"BunsenBurner", "", "", "", ""}
+		String[] Natsunomeryu = {"Natsunomeryu", "", "", "", ""}
+		String[] TheScaleless = {"TheScaleless", "", "", "", ""}
+		String[] Kas-Ethelinh = {"Kas-Ethelinh", "", "", "", ""}
+		String[] Alexstraszan = {"Alexstraszan", "", "", "", ""}
+		String[] Phaarthurnax = {"Phaarthurnax", "", "", "", ""}
+		String[] D-Maleficent = {"D-Maleficent", "", "", "", ""}
+		String[] TheWeatherbe = {"TheWeatherbe", "", "", "", ""}
+		
+		Dragons.add("Desghidorrah	 3       300       400     35");
+		Dragons.add("Chrysophylax    2       200       500     20");
+		Dragons.add("BunsenBurner	 4       400       500     45");
+		Dragons.add("Natsunomeryu 	 1       100       200     10");
+		Dragons.add("TheScaleless	 7       700       600     75");
+		Dragons.add("Kas-Ethelinh    5       600       500     60");
+		Dragons.add("Alexstraszan	 10      1000      9000    55");
+		Dragons.add("Phaarthurnax	 6       600       700     60");
+		Dragons.add("D-Maleficent	 9       900       950     85");
+		Dragons.add("TheWeatherbe 	 8       800       900     80");
+		
+		// Add Exoskeletons Items
+		Exoskeletons.add("Cyrrollalee     7       700        800     75");
+		Exoskeletons.add("Brandobaris     3       350        450     30");
+		Exoskeletons.add("BigBad-Wolf     1       150        250     15");
+		Exoskeletons.add("WickedWitch     2       250        350     25");
+		Exoskeletons.add("Aasterinian     4       400        500     45");
+		Exoskeletons.add("Chronepsish     6       650        750     60");
+		Exoskeletons.add("Kiaransalee     8       850        950     85");
+		Exoskeletons.add("St-Shargaas     5       550        650     55");
+		Exoskeletons.add("Merrshaullk     10      1000       900     55");
+		Exoskeletons.add("St-Yeenoghu     9       950        850     90");
+
+		// Add FireSpells
+		FireSpells.add("Flame_Tornado   700     4   850     300");
+		FireSpells.add("Breath_of_Fire  350     1   450     100");
+		FireSpells.add("Heat_Wave       450     2   600     150");
+		FireSpells.add("Lava_Commet     800     7   1000    550");
+		FireSpells.add("Breath_of_Fire  350     1   450     100");
+		FireSpells.add("Heat_Wave       450     2   600     150");
+		
+		// Add IceSpells 
+		IceSpells.add("Snow_Canon      500     2   650     250");
+		IceSpells.add("Ice_Blade       250     1   450     100");
+		IceSpells.add("Frost_Blizzard  750     5   850     350");
+		IceSpells.add("Arctic_storm    700     6   800     300");
+
+		// Add LightningSpells 
+		LightningSpells.add("LightningDagger       400        1       500     150");
+		LightningSpells.add("Thunder_Blast         750        4       950     400");
+		LightningSpells.add("Electric_Arrows       550        5       650     200");
+		LightningSpells.add("Spark_Needles         500        2       600     200");
+		
+		// Add Paladins
+		Paladins.add("Solonor_Thelandira   300     750     650     700     2500    7");
+		Paladins.add("Sehanine_Moonbow     300     750     700     700     2500    7");
+		Paladins.add("Skoraeus_Stonebones  250     650     600     350     2500    4");
+		Paladins.add("Garl_Glittergold     100     600     500     400     2500    5");
+		
+		// Add Potions
+		Potions.add("Healing_Potion  250     1   100");
+		Potions.add("Strength_Potion 200     1   75");
+		Potions.add("Magic_Potion    350     2   100");
+		Potions.add("Luck_Elixir     500     4   65");
+		Potions.add("Mermaid_Tears   850     5   100");
+		Potions.add("Ambrosia        1000    8   150");
+		
+		// Add Sorcerers
+		Sorcerers.add("Ryan_Glittergold        700     550     600   500     2500    7");
+		Sorcerers.add("Rillifane_Rallathil     1300    750     450   500     2500    9");
+		Sorcerers.add("Segojan_Earthcaller     900     800     500   650     2500    5");
+		Sorcerers.add("Skors_Stones            800     850     600   450     2500    6");
+		
+		// Add Spirits
+		Spirits.add("Andrealphus     2       600       500     40");
+		Spirits.add("Aim-Haborym     1       450       350     35");
+		Spirits.add("Andromalius     3       550       450     25");
+		Spirits.add("Chiang-shih     4       700       600     40");
+		Spirits.add("FallenAngel     5       800       700     50");
+		Spirits.add("Ereshkigall     6       950       450     35");
+		Spirits.add("Melchiresas     7       350       150     75");
+		Spirits.add("Jormunngand     8       600       900     20");
+		Spirits.add("Rakkshasass     9       550       600     35");
+		Spirits.add("Taltecuhtli     10      300       200     50");
+		
+		// Add Warriors
+		Warriors.add("Gaerdal_Ironhand    100     700     500     600     1354    7");
+		Warriors.add("Sejuaine_Monnbow    600     700     800     500     2500    8");
+		Warriors.add("Muamman_Duathall    300     900     500     750     2546    6");
+		Warriors.add("Flandal_Steelskin   200     750     650     700     2500    7");
+		
+		// Add Weaponry
+		Weaponry.add("Sword           500     1    800    1");
+		Weaponry.add("Bow             300     2    500    2");
+		Weaponry.add("Scythe          1000    6    1100   2");
+		Weaponry.add("Axe             550     5    850    1");
+		Weaponry.add("Shield          400     1    100    1");
+		Weaponry.add("TSwords         1400    8    1600   2");
+		Weaponry.add("Dagger          200     1    250    1");
+
+		
+		
+		
+		
+		
+		
+		      
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+		
+
+		
+
+		
+
+		
+
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

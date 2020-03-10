@@ -2,19 +2,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class TheQuest extends CreateBoard implements BoardGame {
 
 	
-	CreateBoard board = new CreateBoard();
-	List<List<positionTTT>>  allWinningLines = new ArrayList<>();
-	int row = 8;
-	int column = 8;
-	TokenID players = new TokenID();
-	static QuestInfo questInf = new QuestInfo();
+	private CreateBoard board = new CreateBoard();
+	private List<List<positionTTT>>  allWinningLines = new ArrayList<>();
+	private int row = 8;
+	private int column = 8;
+	private TokenID players = new TokenID();
+	private QuestInfo questInf = new QuestInfo();
 	private static int maxHeroes = 3;
 	private int currentNumHeroes = 0;
+	private initMarket market = new initMarket();
 	
 	public TheQuest() {
 		// TODO Auto-generated constructor stub\
@@ -68,9 +71,11 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		System.out.println("***Note: You cannot quit while in a fight or in the market.***\n");
 	
 		//Let's player select heroes.
+		Scanner scan = new Scanner(System.in);
+		String userInput;
 		setHeroes();
-				
 		market();
+				
 		
 		return 0;
 	
@@ -118,11 +123,11 @@ public class TheQuest extends CreateBoard implements BoardGame {
 				int heroType = scan.nextInt();
 				
 				if(heroType == 1) {
-					System.out.println("\nChoose a Paladins, enter the number corresponding to the hero");
 					questInf.printPaladins();
 					try {
 						int heroSelect = scan.nextInt()-1;
-						players = new TokenID(heroCount, questInf.getPaladins(heroSelect));
+						System.out.print("You chose --> ");
+						players.addHero(heroCount, questInf.getPaladins(heroSelect));
 						
 						
 					} catch (InputMismatchException e) {
@@ -137,7 +142,8 @@ public class TheQuest extends CreateBoard implements BoardGame {
 					questInf.printSorcerers();
 					try {
 						int heroSelect = scan.nextInt()-1;
-						players = new TokenID(heroCount, questInf.getSorcerer(heroSelect));
+						System.out.print("You chose --> ");
+						players.addHero(heroCount, questInf.getSorcerer(heroSelect));
 						
 					} catch (InputMismatchException e) {
 						// TODO: handle exception
@@ -151,7 +157,8 @@ public class TheQuest extends CreateBoard implements BoardGame {
 					questInf.printWarriors();
 					try {
 						int heroSelect = scan.nextInt()-1;
-						players = new TokenID(heroCount, questInf.getWarrior(heroSelect));
+						System.out.print("You chose --> ");
+						players.addHero(heroCount, questInf.getWarrior(heroSelect));
 						
 					} catch (InputMismatchException e) {
 						// TODO: handle exception
@@ -164,6 +171,13 @@ public class TheQuest extends CreateBoard implements BoardGame {
 				} else {
 					System.out.println("Class type does not exists");
 				}
+				//make it wait 3 seconds
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
 				
 			}
 		} catch (InputMismatchException e) {
@@ -172,55 +186,47 @@ public class TheQuest extends CreateBoard implements BoardGame {
 			scan.close();
 			return -100;
 		}
-		
-		
-		scan.close();
+			
 		return 0;
 		
 	}
 	
 	private int market() {
-		
-		System.out.println("\nKhajiit has wares if you have coins!!");
 		Scanner scan = new Scanner(System.in);
-		int itemSelection;
+		String userInput;
 		
-		System.out.println("\n________________");
-		System.out.println("Armor List");
-		System.out.println("________________");
-		questInf.printArmory();
+		boolean validBuy = false;
+		boolean keepBuying = true; 
 		
-		System.out.println("\n________________");
-		System.out.println("Spell List");
-		System.out.println("________________");
-		questInf.printFireSpells();
-		questInf.printIceSpells();
-		questInf.printLightningSpells();
+		do {
+			validBuy = market.runMarket(questInf, players);
+			System.out.println("\nWould like to make another purchase? Enter a y/Y or n/N");
+			userInput = scan.next();
+			try {
+				if(userInput.equals("y") || userInput.equals("Y")) {
+					keepBuying = true;
+					System.out.println("OK!");
+				} else if(userInput.equals("n") || userInput.equals("N")) {
+					keepBuying = false;
+					System.out.println("OK!");
+				} else {
+					System.out.println("Must enter a y/Y or n/N");
+					return -100;
+				}
+				
+				
+			} catch (InputMismatchException e) {
+				// TODO: handle exception
+				System.out.println("Must enter a number!");
+				return -100;
+			}
+			
+		} while (keepBuying == true);
+				
 		
-		System.out.println("\n________________");
-		System.out.println("Potion List");
-		System.out.println("________________");
-		questInf.printPotions();
-		
-		System.out.println("\n________________");
-		System.out.println("Weapon List");
-		System.out.println("________________");
-		questInf.printWeaponry();
-		
-		System.out.println("\n________________");
-		System.out.println("Hero List");
-		System.out.println("________________");
-		questInf.printWarriors();
-		questInf.printPaladins();
-		questInf.printSorcerers();
-		
-		
-		
-		
-		scan.close();
 		return 0;
+		
 	}
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

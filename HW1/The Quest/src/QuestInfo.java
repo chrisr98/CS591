@@ -194,7 +194,7 @@ public class QuestInfo {
 		
 		// Add Weaponry
 		//Name/cost/level/damage/required hands
-		String[] Sword = {"Sword", "500", "1",     "800", "1"};
+		String[] Sword = {"Sword", "500", "1", "800", "1"};
 		String[] Bow = {"Bow", "300", "2", "500", "2"};
 		String[] Scythe = {"Scythe", "1000", "6", "1100", "2"};
 		String[] Axe = {"Axe", "550", "5", "850", "1"};
@@ -223,9 +223,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getArmor(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %n", Armory.get(i)[0], Armory.get(i)[1], Armory.get(i)[2], Armory.get(i)[3]);
 		return Armory.get(i);
+	}
+	
+	public int getArmorySize() {
+		return Armory.size();
 	}
 	
 	public void printDragons() {
@@ -238,11 +241,14 @@ public class QuestInfo {
 	}
 	
 	public String[] getDragon(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", Dragons.get(i)[0], Dragons.get(i)[1], Dragons.get(i)[2], Dragons.get(i)[3], Dragons.get(i)[4]);
 		return Dragons.get(i);
 	}
 	
+	public int getDragonsSize() {
+		return Dragons.size();
+	}
+
 	public void printExoskeletons() {
 		//Name/level/damage/defense/dodge chance
 		System.out.println("\nChoose an exoskeleton, enter the number corresponding to the hero");
@@ -253,9 +259,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getExoskeleton(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", Exoskeletons.get(i)[0], Exoskeletons.get(i)[1], Exoskeletons.get(i)[2], Exoskeletons.get(i)[3], Exoskeletons.get(i)[4]);
 		return Exoskeletons.get(i);
+	}
+	
+	public int getExoskeletonsSize() {
+		return Exoskeletons.size();
 	}
 	
 	public void printFireSpells() {
@@ -268,9 +277,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getFireSpell(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", FireSpells.get(i)[0], FireSpells.get(i)[1], FireSpells.get(i)[2], FireSpells.get(i)[3], FireSpells.get(i)[4]);
 		return FireSpells.get(i);
+	}
+	
+	public int getFireSpellsSize() {
+		return FireSpells.size();
 	}
 
 	public void printIceSpells() {
@@ -282,9 +294,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getIceSpell(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", IceSpells.get(i)[0], IceSpells.get(i)[1], IceSpells.get(i)[2], IceSpells.get(i)[3], IceSpells.get(i)[4]);
 		return IceSpells.get(i);
+	}
+	
+	public int getIceSpellsSize() {
+		return IceSpells.size();
 	}
 	
 	public void printLightningSpells() {
@@ -296,9 +311,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getLightningSpell(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", LightningSpells.get(i)[0], LightningSpells.get(i)[1], LightningSpells.get(i)[2], LightningSpells.get(i)[3], LightningSpells.get(i)[4]);
 		return LightningSpells.get(i);
+	}
+	
+	public int getLightningSpellsSize() {
+		return LightningSpells.size();
 	}
 	
 	public void printPaladins() {
@@ -310,9 +328,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getPaladins(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %s %s %n", Paladins.get(i)[0], Paladins.get(i)[1], Paladins.get(i)[2], Paladins.get(i)[3], Paladins.get(i)[4], Paladins.get(i)[5], Paladins.get(i)[6]);
 		return Paladins.get(i);
+	}
+	
+	public int getPaladinsSize() {
+		return Paladins.size();
 	}
 	
 	public void printPotions() {
@@ -325,9 +346,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getPotion(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %n", Potions.get(i)[0], Potions.get(i)[1], Potions.get(i)[2], Potions.get(i)[3]);
 		return Potions.get(i);
+	}
+	
+	public int getPotionsSize() {
+		return Potions.size();
 	}
 	
 	public void printSorcerers() {
@@ -339,9 +363,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getSorcerer(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %s %s %n", Sorcerers.get(i)[0], Sorcerers.get(i)[1], Sorcerers.get(i)[2], Sorcerers.get(i)[3], Sorcerers.get(i)[4], Sorcerers.get(i)[5], Sorcerers.get(i)[6]);
 		return Sorcerers.get(i);
+	}
+	
+	public int getSorcerersSize() {
+		return Sorcerers.size();
 	}
 	
 	public void printSpirits() {
@@ -354,9 +381,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getSpirit(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", Spirits.get(i)[0], Spirits.get(i)[1], Spirits.get(i)[2], Spirits.get(i)[3], Spirits.get(i)[4]);
 		return Spirits.get(i);
+	}
+	
+	public int getSpiritsSize() {
+		return Spirits.size();
 	}
 	
 	public void printWarriors() {
@@ -368,9 +398,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getWarrior(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %s %s %n", Warriors.get(i)[0], Warriors.get(i)[1], Warriors.get(i)[2], Warriors.get(i)[3], Warriors.get(i)[4], Warriors.get(i)[5], Warriors.get(i)[6]);
 		return Warriors.get(i);
+	}
+	
+	public int getWarriorsSize() {
+		return Warriors.size();
 	}
 	
 	public void printWeaponry() {
@@ -383,9 +416,12 @@ public class QuestInfo {
 	}
 	
 	public String[] getWeapon(int i) {
-		System.out.print("You chose --> ");
 		System.out.printf("%s: %s %s %s %s %n", Weaponry.get(i)[0], Weaponry.get(i)[1], Weaponry.get(i)[2], Weaponry.get(i)[3], Weaponry.get(i)[4]);
 		return Weaponry.get(i);
+	}
+	
+	public int getWeaponrySize() {
+		return Weaponry.size();
 	}
 	
 	

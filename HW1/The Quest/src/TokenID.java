@@ -42,6 +42,7 @@ public class TokenID {
 		return playerStats.get(heroNumber);
 	}
 	
+	//Get how many heroes player controls
 	public int totalHeroes() {
 		return playerStats.size();
 	}
@@ -49,17 +50,18 @@ public class TokenID {
 
 	// Print list of heroes
 	public void printHeroList() {
-//		System.out.printf("List of Heroes: %n");
 		for (int i = 0; i < playerStats.size(); i++) {
 			System.out.printf("Hero %d --> %s: | %s | %s | %s | %s | %s | %s %n", i+1, playerStats.get(i)[0], playerStats.get(i)[1], playerStats.get(i)[2], playerStats.get(i)[3], playerStats.get(i)[4], playerStats.get(i)[5], playerStats.get(i)[6]);
 		}
 		
 	}
 	
+	//Get hero inventory
 	public Inventory getBag(int heroNum) {
 		return heroBags.get(heroNum);		
 	}
 	
+	//Add item to hero bag
 	public void addToBag(int heroNum, String[] item, String itemType) {
 		if(itemType.equals("armor")) {
 			getBag(heroNum).addArmor(item);
@@ -74,7 +76,7 @@ public class TokenID {
 		}
 		
 	}
-	
+	//Remove item to hero bag
 	public void remToBag(int heroNum, int item, String itemType) {
 		if(itemType.equals("armor") && getBag(heroNum).armorLen() > item) {
 			getBag(heroNum).remArmor(item);

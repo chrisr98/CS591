@@ -55,6 +55,7 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		// TODO Auto-generated method stub
 		positionTTT spot = new positionTTT(currentLoc.x, currentLoc.y, 1);
 		boolean valid = false;
+		//checks which direction and if valid
 		if(move.equals("w") || move.equals("W")) {
 			if (validate(spot.x-1, board)) {
 				spot.x -= 1;
@@ -78,6 +79,7 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		} else {
 			System.out.println("Not a valid move!");
 		}
+		//if valid store info to update cell displays accordingly
 		if(valid == true)
 		{
 			int temp = this.board.getStateOfPositionFromBoard(spot, row);
@@ -124,13 +126,17 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		//Let's player select heroes.
 		Scanner scan = new Scanner(System.in);
 		String userInput;
-		setHeroes();
+		if (setHeroes() == -100)
+		{
+			return -100;
+		}
 		
 		//Set board, starting position for player and print it.
 		board.setTileStates();
 		
 		//Name/mana/strength/agility/dexterity/starting money/starting experience
 
+		
 		System.out.println("\nHero # -->_______Name________: | Mana | Strength | Agility | Dexterity | Money | EXP ");
 		System.out.println("_______________________________________________________________");
 		players.printHeroList();
@@ -143,14 +149,21 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		System.out.println("Entering an '_' spot triggers an encounter");
 		System.out.println("A '&' spot is not accessible");
 		System.out.println("To quit press q/Q. ");
+		
+		//Continuously get user to enter next input
 		while((userInput = scan.next())!=null) {
 			System.out.println("Your team:");
 			System.out.println("_______________________________________________________________");
 			players.printHeroList();
 			System.out.println("_______________________________________________________________");
+		
+			positionTTT tempLoc = currentLoc;
+			int tempState = previousState;
+			
 			if(userInput.equals("q") || userInput.equals("Q")) {
 				break;
 			} else if(userInput.equals("i") || userInput.equals("I")) {
+				//Checks if use wants to look at info menu
 				infoMenu();
 				System.out.println("Enter your move!");
 				System.out.println("You can move using 'w/W','a/A','s/S',and 'd/D'");
@@ -159,11 +172,15 @@ public class TheQuest extends CreateBoard implements BoardGame {
 				System.out.println("A '&' spot is not accessible");
 				System.out.println("To quit press q/Q. ");
 				continue;
+			} else if(userInput.equals("m") || userInput.equals("M")) {
+				//shows map
+				System.out.println("This is showing previous state of map. Before your last move. It will update after the next move.");
+				board.printBoard();
+				continue;
 			}
 			
-			positionTTT tempLoc = currentLoc;
-			int tempState = previousState;
 			
+			//validates move and updates map accordingly
 			boolean  valid = playerMoves(userInput, board.boardTicTacToe);
 			
 			if(valid == true) {
@@ -188,10 +205,11 @@ public class TheQuest extends CreateBoard implements BoardGame {
 	}	
 	
 	
+	
 	// I've decided to split the run function into different methods so it is smaller to digest
 	private int setHeroes() {
 		//Ask how many heroes
-		System.out.println("How many heroes would you like to add? ***Note: You cannot have more than 3 heroes.***");
+		System.out.println("How many heroes would you like to add?\n***Note: You cannot have more than 3 heroes and you must have at least 1.***");
 		
 		System.out.println();
 		Scanner scan = new Scanner(System.in);
@@ -202,12 +220,13 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		try {
 			// Initialize how many heroes the player wants
 			numHeroes = scan.nextInt();
-			
-			while (numHeroes+currentNumHeroes > maxHeroes) {
+			while (numHeroes+currentNumHeroes > maxHeroes || numHeroes < minHeroes) {
 				System.out.println("You currently have "+ currentNumHeroes + " heroes.");
-				System.out.println("***Note: You cannot have more than 3 heroes.***");
+				System.out.println("***Note: You cannot have more than 3 heroes and you must have at least 1.***");
 				System.out.println("How many heroes would you like to add?");
 				numHeroes = scan.nextInt();
+				
+				
 			}
 			currentNumHeroes = numHeroes;
 		} catch (InputMismatchException e) {
@@ -297,7 +316,8 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		
 	}
 	
-	private int market() {
+
+	private int market() {//Run the market class to buy and sell stuff
 		Scanner scan = new Scanner(System.in);
 		String userInput;
 		
@@ -308,6 +328,8 @@ public class TheQuest extends CreateBoard implements BoardGame {
 			validRun = market.runMarket(questInf, players);
 			if (validRun == 2) {
 				infoMenu();
+			} else if (validRun == 3) {
+				board.printBoard();
 			}
 			System.out.println("\nWould like to enter the market again? Enter a y/Y or n/N");
 			try {
@@ -337,6 +359,7 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		
 	}
 
+	//Simply displays the inventory
 	private int infoMenu() {
 		
 		System.out.println("Your team:");

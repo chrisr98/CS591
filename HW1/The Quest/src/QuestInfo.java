@@ -20,6 +20,8 @@ public class QuestInfo {
 	public QuestInfo() {
 		// TODO Auto-generated constructor stub
 		
+		//Hard coded list of all items for the quest
+		
 		// Add Armory Items
 		//Name/cost/required level/damage reduction
 		String[] Platinum_Shield = {"Platinum_Shield", "150", "1", "200"};
@@ -212,7 +214,7 @@ public class QuestInfo {
 		
 	}
 
-	
+	//Print all item of type, get item of type, and, and get how many items of type.  
 	public void printArmory() {
 		//Name/cost/required level/damage reduction
 		System.out.println("\nChoose an armor, enter the number corresponding to the hero");

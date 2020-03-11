@@ -37,7 +37,7 @@ public class CreateBoard
 		return boardTicTacToe;
 	}
 
-	
+	//Not needed for all games
 	public List<List<positionTTT>> initializeWinningLines(int boardSize, boolean OaO)
 	{
 		//create a list of winning line so that the game will "brute-force" check 
@@ -119,9 +119,7 @@ public class CreateBoard
 	
 	public int getStateOfPositionFromBoard(positionTTT position, int size)
 	{
-		//a helper function to get state of a certain position in the Tic-Tac-Toe board by given position TicTacToe
-//		int index = position.x+position.y*size;
-//		return this.boardTicTacToe.get(index).state;
+		//a helper function to get state of a certain position in the board by given position 
 		int state = 0;
 		for (int i = 0; i < this.column*this.column; i++) 
 		{
@@ -174,25 +172,27 @@ public class CreateBoard
 		Random rand = new Random();
 		int randPlacement = rand.nextInt(10 - 1 + 1) + 1;
 		
-		
-		//print in "graphical" display
+		//set tiles at the beginning of the game to decide their function
 		for (int i = 0; i < this.column*this.column; i++) 
 		{	
 			randPlacement = rand.nextInt(10 - 1 + 1) + 1;
+			//first tile is always player
 			if (this.boardTicTacToe.get(i).y == 0 && this.boardTicTacToe.get(i).x == 0) {
 				this.boardTicTacToe.get(i).state = 1;
 			} else {
+				//20% of all tiles are non accessible
 				if (randPlacement < 3) {
 					this.boardTicTacToe.get(i).state = 3;
-				} else if (randPlacement >= 3 && randPlacement <= 5) {
+				} else if (randPlacement >= 3 && randPlacement <= 5) { //30% of all tiles are market
 					this.boardTicTacToe.get(i).state = 2;
-				} else {
+				} else { //50% of all tiles are common
 					this.boardTicTacToe.get(i).state = 0;
 				}
 			}
 		}
 	} 
 	
+	//Update tile states once player makes a move.
 	public void updateTiles(positionTTT newLoc, positionTTT oldLoc, int previousState) {
 		for (int i = 0; i < this.column*this.column; i++) 
 		{

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 /**
  * 
@@ -115,14 +117,22 @@ public class CreateBoard
 		return winningLines;
 	}
 	
-	public int getStateOfPositionFromBoard(positionTTT position, int givenColumn)
+	public int getStateOfPositionFromBoard(positionTTT position, int size)
 	{
 		//a helper function to get state of a certain position in the Tic-Tac-Toe board by given position TicTacToe
-		int index = position.x+position.y*givenColumn;
-		return this.boardTicTacToe.get(index).state;
+//		int index = position.x+position.y*size;
+//		return this.boardTicTacToe.get(index).state;
+		int state = 0;
+		for (int i = 0; i < this.column*this.column; i++) 
+		{
+			if(this.boardTicTacToe.get(i).y == position.y && this.boardTicTacToe.get(i).x == position.x) {
+				state = this.boardTicTacToe.get(i).state;
+			}
+		}
+		return state;
 	}
 	
-	public void printBoardTicTacToe(int row, int column)
+	public void printBoard()
 	{
 		
 		//print in "graphical" display
@@ -137,11 +147,16 @@ public class CreateBoard
 				}
 				else if(this.getStateOfPositionFromBoard(new positionTTT(i,j), column)==2)
 				{
-					System.out.print(" O "); //print cross "O" for position marked by player 2
+//					System.out.print(" O "); //print cross "O" for position marked by player 2
+					System.out.print(" M "); //print cross "M" for position marked by Market
 				}
 				else if(this.getStateOfPositionFromBoard(new positionTTT(i,j), column)==0)
 				{
 					System.out.print(" _ "); //print "_" if the position is not marked
+				}
+				else if(this.getStateOfPositionFromBoard(new positionTTT(i,j), column)== 3)
+				{
+					System.out.print(" & "); //print "&" if the position is not accessible
 				}
 				if(j==column-1)
 				{
@@ -151,10 +166,43 @@ public class CreateBoard
 			}
 			System.out.println();
 		}
-	}
+	} 
 		
 	
 	
+	public void setTileStates()	{
+		Random rand = new Random();
+		int randPlacement = rand.nextInt(10 - 1 + 1) + 1;
+		
+		
+		//print in "graphical" display
+		for (int i = 0; i < this.column*this.column; i++) 
+		{	
+			randPlacement = rand.nextInt(10 - 1 + 1) + 1;
+			if (this.boardTicTacToe.get(i).y == 0 && this.boardTicTacToe.get(i).x == 0) {
+				this.boardTicTacToe.get(i).state = 1;
+			} else {
+				if (randPlacement < 3) {
+					this.boardTicTacToe.get(i).state = 3;
+				} else if (randPlacement >= 3 && randPlacement <= 5) {
+					this.boardTicTacToe.get(i).state = 2;
+				} else {
+					this.boardTicTacToe.get(i).state = 0;
+				}
+			}
+		}
+	} 
 	
+	public void updateTiles(positionTTT newLoc, positionTTT oldLoc, int previousState) {
+		for (int i = 0; i < this.column*this.column; i++) 
+		{
+			if(this.boardTicTacToe.get(i).y == newLoc.y && this.boardTicTacToe.get(i).x == newLoc.x) {
+				this.boardTicTacToe.get(i).state = newLoc.state;
+			}
+			if(this.boardTicTacToe.get(i).y == oldLoc.y && this.boardTicTacToe.get(i).x == oldLoc.x) {
+				this.boardTicTacToe.get(i).state = previousState;
+			}
+		}
+	}
 	
 }

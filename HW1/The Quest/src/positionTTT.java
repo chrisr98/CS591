@@ -26,4 +26,8 @@ public class positionTTT {
 		System.out.print("("+x+","+y+")");
 		System.out.println("state: "+state);
 	}
+	
+	public void changeState(int setState) {
+		this.state = setState;
+	}
 }

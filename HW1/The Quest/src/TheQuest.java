@@ -13,15 +13,20 @@ public class TheQuest extends CreateBoard implements BoardGame {
 	private List<List<positionTTT>>  allWinningLines = new ArrayList<>();
 	private int row = 8;
 	private int column = 8;
+	private int size = row;
 	private TokenID players = new TokenID();
 	private QuestInfo questInf = new QuestInfo();
 	private static int maxHeroes = 3;
+	private static int minHeroes = 1;
 	private int currentNumHeroes = 0;
 	private initMarket market = new initMarket();
+	private positionTTT currentLoc;
+	private int previousState = 0;
 	
 	public TheQuest() {
 		// TODO Auto-generated constructor stub\
 		board.createTicTacToeBoard(row, column);
+		currentLoc = board.boardTicTacToe.get(0);
 		
 	}
 	
@@ -46,16 +51,63 @@ public class TheQuest extends CreateBoard implements BoardGame {
 
 	 // checks to see if player move is valid and updates board if it is
 	@Override
-	public boolean playerMoves(positionTTT move, List<positionTTT> board) {
+	public boolean playerMoves(String move, List<positionTTT> board) {
 		// TODO Auto-generated method stub
-		return false;
+		positionTTT spot = new positionTTT(currentLoc.x, currentLoc.y, 1);
+		boolean valid = false;
+		if(move.equals("w") || move.equals("W")) {
+			if (validate(spot.x-1, board)) {
+				spot.x -= 1;
+				valid = true;
+			}
+		} else if (move.equals("a") || move.equals("A")) {
+			if(validate(spot.y-1, board)) {
+				spot.y -= 1;
+				valid = true;
+			}
+		} else if (move.equals("s") || move.equals("S")) {
+			if(validate(spot.x+1, board)) {
+				spot.x += 1;
+				valid = true;
+			}
+		} else if (move.equals("d") || move.equals("D")) {
+			if(validate(spot.y+1, board)) {
+				spot.y += 1;
+				valid = true;
+			}
+		} else {
+			System.out.println("Not a valid move!");
+		}
+		if(valid == true)
+		{
+			int temp = this.board.getStateOfPositionFromBoard(spot, row);
+			 
+			if (temp == 0) {
+				System.out.println("Prepare for battle!");
+			} else if (temp == 2) {
+				market();
+			} else if (temp == 3) {
+				System.out.println("Can't enter non-accessible cells!");
+				return false;
+			}
+			currentLoc.state = previousState;
+			previousState = temp;
+			currentLoc = spot;
+		}
+		
+
+		return  valid;
 	}
 
 	// Helper function to help validate player move if they keep inputing wrong thing
 	@Override
-	public positionTTT validate(int player, List<positionTTT> board) {
+	public boolean validate(int move, List<positionTTT> board) {
 		// TODO Auto-generated method stub
-		return null;
+		if (move >= size || move < 0) {
+			System.out.println("Not a valid move!");
+			return false;
+		}
+		return true;
 	}
 
 	
@@ -66,17 +118,71 @@ public class TheQuest extends CreateBoard implements BoardGame {
 
 		//Sets up the info at the beginning
 		System.out.println("Welcome to The Quest!");
-		System.out.println("You can move using 'W','A','S',and 'D'");
-		System.out.println("\nTo quit press Q. ");
+		System.out.println("To quit press q/Q. ");
 		System.out.println("***Note: You cannot quit while in a fight or in the market.***\n");
 	
 		//Let's player select heroes.
 		Scanner scan = new Scanner(System.in);
 		String userInput;
 		setHeroes();
-		market();
-				
 		
+		//Set board, starting position for player and print it.
+		board.setTileStates();
+		
+		//Name/mana/strength/agility/dexterity/starting money/starting experience
+
+		System.out.println("\nHero # -->_______Name________: | Mana | Strength | Agility | Dexterity | Money | EXP ");
+		System.out.println("_______________________________________________________________");
+		players.printHeroList();
+		System.out.println("_______________________________________________________________");
+		board.printBoard();
+		
+		System.out.println("Enter your move!");
+		System.out.println("You can move using 'w/W','a/A','s/S',and 'd/D'");
+		System.out.println("Entering an 'M' spot opens the market");
+		System.out.println("Entering an '_' spot triggers an encounter");
+		System.out.println("A '&' spot is not accessible");
+		System.out.println("To quit press q/Q. ");
+		while((userInput = scan.next())!=null) {
+			System.out.println("Your team:");
+			System.out.println("_______________________________________________________________");
+			players.printHeroList();
+			System.out.println("_______________________________________________________________");
+			if(userInput.equals("q") || userInput.equals("Q")) {
+				break;
+			} else if(userInput.equals("i") || userInput.equals("I")) {
+				infoMenu();
+				System.out.println("Enter your move!");
+				System.out.println("You can move using 'w/W','a/A','s/S',and 'd/D'");
+				System.out.println("Entering an 'M' spot opens the market");
+				System.out.println("Entering an '_' spot triggers an encounter");
+				System.out.println("A '&' spot is not accessible");
+				System.out.println("To quit press q/Q. ");
+				continue;
+			}
+			
+			positionTTT tempLoc = currentLoc;
+			int tempState = previousState;
+			
+			boolean  valid = playerMoves(userInput, board.boardTicTacToe);
+			
+			if(valid == true) {
+				board.updateTiles(currentLoc, tempLoc, tempState);
+			}
+				
+			board.printBoard();
+			
+			
+			
+			System.out.println("Enter your move!");
+			System.out.println("You can move using 'w/W','a/A','s/S',and 'd/D'");
+			System.out.println("Entering an 'M' spot opens the market");
+			System.out.println("Entering an '_' spot triggers an encounter");
+			System.out.println("A '&' spot is not accessible");
+			System.out.println("To quit press q/Q. ");
+		}
+				
+		infoMenu();
 		return 0;
 	
 	}	
@@ -195,14 +301,17 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		Scanner scan = new Scanner(System.in);
 		String userInput;
 		
-		boolean validBuy = false;
+		int validRun = 0;
 		boolean keepBuying = true; 
 		
 		do {
-			validBuy = market.runMarket(questInf, players);
-			System.out.println("\nWould like to make another purchase? Enter a y/Y or n/N");
-			userInput = scan.next();
+			validRun = market.runMarket(questInf, players);
+			if (validRun == 2) {
+				infoMenu();
+			}
+			System.out.println("\nWould like to enter the market again? Enter a y/Y or n/N");
 			try {
+				userInput = scan.next();
 				if(userInput.equals("y") || userInput.equals("Y")) {
 					keepBuying = true;
 					System.out.println("OK!");
@@ -227,8 +336,29 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		return 0;
 		
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+	private int infoMenu() {
+		
+		System.out.println("Your team:");
+		System.out.println("_______________________________________________________________");
+		players.printHeroList();
+		System.out.println("_______________________________________________________________");
+		
+		for (int i = 0; i < players.totalHeroes(); i++) {
+			String[] seller = players.getHero(i);
+			System.out.printf("%nHero %d --> %s.%n", i+1, Arrays.toString(seller));
+
+			System.out.printf("This is what they are carrying:%n");
+
+			Inventory bag = players.getBag(i);
+
+			bag.printBagItems();
+		}
+		
+		
+		
+		
+		return 0;
 	}
+
 }

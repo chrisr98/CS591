@@ -122,7 +122,7 @@ public class QuestInfo {
 		String[] Sehanine_Moonbow = {"Sehanine_Moonbow", "300", "750", "700", "700", "2500", "7"};
 		String[] Skoraeus_Stonebones = {"Skoraeus_Stonebones", "250", "650", "600", "350", "2500", "4"};
 		String[] Garl_Glittergold = {"Garl_Glittergold", "100", "600", "500", "400", "2500", "5"};
-		
+		 
 		Paladins.add(Solonor_Thelandira);
 		Paladins.add(Sehanine_Moonbow);
 		Paladins.add(Skoraeus_Stonebones);

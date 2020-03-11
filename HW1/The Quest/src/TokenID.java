@@ -9,11 +9,13 @@ public class TokenID {
 
 	private static ArrayList<Integer> playerTokens = new ArrayList<Integer>();
 	
-	private static ArrayList<Inventory> heroBags = new ArrayList<Inventory>();
+	public static ArrayList<Inventory> heroBags = new ArrayList<Inventory>();
 	
 	private static ArrayList<String[]> playerStats = new ArrayList<String[]>();
 	
-	
+	private static Inventory hero1 = new Inventory();
+	private static Inventory hero2 = new Inventory();
+	private static Inventory hero3 = new Inventory();
 	
 	@SuppressWarnings("rawtypes")
 	private static List<ArrayList> listOfMixedTypes = new ArrayList<ArrayList>();
@@ -21,11 +23,8 @@ public class TokenID {
 	
 
 	
-	public TokenID() {
+	public TokenID() { 
 		// TODO Auto-generated constructor stub
-		Inventory hero1 = new Inventory();
-		Inventory hero2 = new Inventory();
-		Inventory hero3 = new Inventory();
 		heroBags.add(hero1);
 		heroBags.add(hero2);
 		heroBags.add(hero3);
@@ -42,27 +41,51 @@ public class TokenID {
 	public String[] getHero(int heroNumber) {
 		return playerStats.get(heroNumber);
 	}
+	
+	public int totalHeroes() {
+		return playerStats.size();
+	}
+	
 
 	// Print list of heroes
 	public void printHeroList() {
-		System.out.printf("List of Heroes: %n");
+//		System.out.printf("List of Heroes: %n");
 		for (int i = 0; i < playerStats.size(); i++) {
-			System.out.printf("Hero %d %s %n", i+1, Arrays.toString(playerStats.get(i)));
+			System.out.printf("Hero %d --> %s: | %s | %s | %s | %s | %s | %s %n", i+1, playerStats.get(i)[0], playerStats.get(i)[1], playerStats.get(i)[2], playerStats.get(i)[3], playerStats.get(i)[4], playerStats.get(i)[5], playerStats.get(i)[6]);
 		}
 		
 	}
 	
-	private void addToBag(int heroNum, String[] item, String itemType) {
+	public Inventory getBag(int heroNum) {
+		return heroBags.get(heroNum);		
+	}
+	
+	public void addToBag(int heroNum, String[] item, String itemType) {
 		if(itemType.equals("armor")) {
-			heroBags.get(heroNum-1).addArmor(item);
+			getBag(heroNum).addArmor(item);
 		} else if(itemType.equals("potion")) {
-			heroBags.get(heroNum-1).addPotion(item);
+			getBag(heroNum).addPotion(item);
 		} else if(itemType.equals("spell")) {
-			heroBags.get(heroNum-1).addSpell(item);
+			getBag(heroNum).addSpell(item);
 		} else if(itemType.equals("weapon")) {
-			heroBags.get(heroNum-1).addWeapon(item);
+			getBag(heroNum).addWeapon(item);
 		} else {
 			System.out.printf("Unidentified items cannot be added");
+		}
+		
+	}
+	
+	public void remToBag(int heroNum, int item, String itemType) {
+		if(itemType.equals("armor") && getBag(heroNum).armorLen() > item) {
+			getBag(heroNum).remArmor(item);
+		} else if(itemType.equals("potion") && getBag(heroNum).potionLen() > item) {
+			getBag(heroNum).remPotion(item);
+		} else if(itemType.equals("spell") && getBag(heroNum).spellLen() > item) {
+			getBag(heroNum).remSpell(item);
+		} else if(itemType.equals("weapon") && getBag(heroNum).weaponLen() > item) {
+			getBag(heroNum).remWeapon(item);
+		} else {
+			System.out.printf("There is no such item remove");
 		}
 		
 	}

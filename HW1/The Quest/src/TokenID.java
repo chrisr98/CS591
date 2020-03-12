@@ -42,6 +42,11 @@ public class TokenID {
 		return playerStats.get(heroNumber);
 	}
 	
+	//Get array list of heroes for boolean checking
+	public ArrayList<String[]> getHeroList(){
+		return playerStats;
+	}
+	
 	//Get how many heroes player controls
 	public int totalHeroes() {
 		return playerStats.size();

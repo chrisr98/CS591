@@ -229,7 +229,7 @@ public class QuestInfo {
 	}
 	
 	public String[] getArmor(int i) {
-//		System.out.printf("%s: %s %s %s %n", Armory.get(i)[0], Armory.get(i)[1], Armory.get(i)[2], Armory.get(i)[3]);
+		System.out.printf("%s: %s %s %s %n", Armory.get(i)[0], Armory.get(i)[1], Armory.get(i)[2], Armory.get(i)[3]);
 		return Armory.get(i);
 	}
 	
@@ -242,12 +242,12 @@ public class QuestInfo {
 		System.out.println("\nChoose a dragon, enter the number corresponding to the hero");
 		for (int i = 0; i < Dragons.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %n", Dragons.get(i)[0], Dragons.get(i)[1], Dragons.get(i)[2], Dragons.get(i)[3], Dragons.get(i)[4]);
+			System.out.printf("%s: %s %s %s %s %s %n", Dragons.get(i)[0], Dragons.get(i)[1], Dragons.get(i)[2], Dragons.get(i)[3], Dragons.get(i)[4], Dragons.get(i)[5]);
 		}
 	}
 	
 	public String[] getDragon(int i) {
-		System.out.printf("%s: %s %s %s %s %n", Dragons.get(i)[0], Dragons.get(i)[1], Dragons.get(i)[2], Dragons.get(i)[3], Dragons.get(i)[4]);
+//		System.out.printf("%s: %s %s %s %s %s %n", Dragons.get(i)[0], Dragons.get(i)[1], Dragons.get(i)[2], Dragons.get(i)[3], Dragons.get(i)[4], Dragons.get(i)[5]);
 		return Dragons.get(i);
 	}
 	
@@ -260,12 +260,12 @@ public class QuestInfo {
 		System.out.println("\nChoose an exoskeleton, enter the number corresponding to the hero");
 		for (int i = 0; i < Exoskeletons.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %n", Exoskeletons.get(i)[0], Exoskeletons.get(i)[1], Exoskeletons.get(i)[2], Exoskeletons.get(i)[3], Exoskeletons.get(i)[4]);
+			System.out.printf("%s: %s %s %s %s %s %n", Exoskeletons.get(i)[0], Exoskeletons.get(i)[1], Exoskeletons.get(i)[2], Exoskeletons.get(i)[3], Exoskeletons.get(i)[4], Exoskeletons.get(i)[5]);
 		}
 	}
 	
 	public String[] getExoskeleton(int i) {
-		System.out.printf("%s: %s %s %s %s %n", Exoskeletons.get(i)[0], Exoskeletons.get(i)[1], Exoskeletons.get(i)[2], Exoskeletons.get(i)[3], Exoskeletons.get(i)[4]);
+//		System.out.printf("%s: %s %s %s %s %s %n", Exoskeletons.get(i)[0], Exoskeletons.get(i)[1], Exoskeletons.get(i)[2], Exoskeletons.get(i)[3], Exoskeletons.get(i)[4], Exoskeletons.get(i)[5]);
 		return Exoskeletons.get(i);
 	}
 	
@@ -382,12 +382,12 @@ public class QuestInfo {
 		System.out.println("\nChoose a spirit, enter the number corresponding to the hero");
 		for (int i = 0; i < Spirits.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %n", Spirits.get(i)[0], Spirits.get(i)[1], Spirits.get(i)[2], Spirits.get(i)[3], Spirits.get(i)[4]);
+			System.out.printf("%s: %s %s %s %s %s%n", Spirits.get(i)[0], Spirits.get(i)[1], Spirits.get(i)[2], Spirits.get(i)[3], Spirits.get(i)[4], Spirits.get(i)[5]);
 		}
 	}
 	
 	public String[] getSpirit(int i) {
-		System.out.printf("%s: %s %s %s %s %n", Spirits.get(i)[0], Spirits.get(i)[1], Spirits.get(i)[2], Spirits.get(i)[3], Spirits.get(i)[4]);
+//		System.out.printf("%s: %s %s %s %s %s %n", Spirits.get(i)[0], Spirits.get(i)[1], Spirits.get(i)[2], Spirits.get(i)[3], Spirits.get(i)[4], Spirits.get(i)[5]);
 		return Spirits.get(i);
 	}
 	
@@ -422,7 +422,7 @@ public class QuestInfo {
 	}
 	
 	public String[] getWeapon(int i) {
-//		System.out.printf("%s: %s %s %s %s %n", Weaponry.get(i)[0], Weaponry.get(i)[1], Weaponry.get(i)[2], Weaponry.get(i)[3], Weaponry.get(i)[4]);
+		System.out.printf("%s: %s %s %s %s %n", Weaponry.get(i)[0], Weaponry.get(i)[1], Weaponry.get(i)[2], Weaponry.get(i)[3], Weaponry.get(i)[4]);
 		return Weaponry.get(i);
 	}
 	

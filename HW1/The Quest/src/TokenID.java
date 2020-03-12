@@ -47,11 +47,15 @@ public class TokenID {
 		return playerStats.size();
 	}
 	
+	//set a hero
+	public void setHero(int index, String[] hero) {
+		playerStats.set(index, hero);
+	}
 
 	// Print list of heroes
 	public void printHeroList() {
 		for (int i = 0; i < playerStats.size(); i++) {
-			System.out.printf("Hero %d --> %s: | %s | %s | %s | %s | %s | %s %n", i+1, playerStats.get(i)[0], playerStats.get(i)[1], playerStats.get(i)[2], playerStats.get(i)[3], playerStats.get(i)[4], playerStats.get(i)[5], playerStats.get(i)[6]);
+			System.out.printf("Hero %d --> %s: | %s | %s | %s | %s | %s | %s | %s %n", i+1, playerStats.get(i)[0], playerStats.get(i)[1], playerStats.get(i)[2], playerStats.get(i)[3], playerStats.get(i)[4], playerStats.get(i)[5], playerStats.get(i)[6], playerStats.get(i)[7]);
 		}
 		
 	}

@@ -1,19 +1,23 @@
 import java.util.ArrayList;
 
 public class QuestInfo {
-	
+	//Items
 	public static ArrayList<String[]> Armory = new ArrayList<String[]>();
-	public static ArrayList<String[]> Dragons = new ArrayList<String[]>();
-	public static ArrayList<String[]> Exoskeletons = new ArrayList<String[]>();
+	public static ArrayList<String[]> Weaponry = new ArrayList<String[]>();
+	public static ArrayList<String[]> Potions = new ArrayList<String[]>();
+	//Spells
 	public static ArrayList<String[]> FireSpells = new ArrayList<String[]>();
 	public static ArrayList<String[]> IceSpells = new ArrayList<String[]>();
 	public static ArrayList<String[]> LightningSpells = new ArrayList<String[]>();
-	public static ArrayList<String[]> Paladins = new ArrayList<String[]>();
-	public static ArrayList<String[]> Potions = new ArrayList<String[]>();
-	public static ArrayList<String[]> Sorcerers = new ArrayList<String[]>();
+	//NPCs
+	public static ArrayList<String[]> Dragons = new ArrayList<String[]>();
+	public static ArrayList<String[]> Exoskeletons = new ArrayList<String[]>();
 	public static ArrayList<String[]> Spirits = new ArrayList<String[]>();
+	//PCs
+	public static ArrayList<String[]> Paladins = new ArrayList<String[]>();
+	public static ArrayList<String[]> Sorcerers = new ArrayList<String[]>();
 	public static ArrayList<String[]> Warriors = new ArrayList<String[]>();
-	public static ArrayList<String[]> Weaponry = new ArrayList<String[]>();
+	
 	
 	
 
@@ -37,17 +41,17 @@ public class QuestInfo {
 		Armory.add(Speed_Boots);
 		
 		// Add Dragons Items
-		//Name/level/damage/defense/dodge chance
-		String[] Desghidorrah = {"Desghidorrah", "3", "300", "400", "35"};
-		String[] Chrysophylax = {"Chrysophylax", "2", "200", "500", "20"};
-		String[] BunsenBurner = {"BunsenBurner", "4", "400", "500", "45"};
-		String[] Natsunomeryu = {"Natsunomeryu", "1", "100", "200", "10"};
-		String[] TheScaleless = {"TheScaleless", "7", "700", "600", "75"};
-		String[] Kas_Ethelinh = {"Kas-Ethelinh", "5", "600", "500", "60"};
-		String[] Alexstraszan = {"Alexstraszan", "10", "1000", "9000", "55"};
-		String[] Phaarthurnax = {"Phaarthurnax", "6", "600", "700", "60"};
-		String[] D_Maleficent = {"D-Maleficent", "9", "900", "950", "85"};
-		String[] TheWeatherbe = {"TheWeatherbe", "8", "800", "900", "80"};
+		//Name/level/damage/defense/dodge chance/HP
+		String[] Desghidorrah = {"Desghidorrah", "3", "300", "400", "35", "300"};
+		String[] Chrysophylax = {"Chrysophylax", "2", "200", "500", "20", "200"};
+		String[] BunsenBurner = {"BunsenBurner", "4", "400", "500", "45", "400"};
+		String[] Natsunomeryu = {"Natsunomeryu", "1", "100", "200", "10", "100"};
+		String[] TheScaleless = {"TheScaleless", "7", "700", "600", "75", "700"};
+		String[] Kas_Ethelinh = {"Kas-Ethelinh", "5", "600", "500", "60", "500"};
+		String[] Alexstraszan = {"Alexstraszan", "10", "1000", "9000", "55", "1000"};
+		String[] Phaarthurnax = {"Phaarthurnax", "6", "600", "700", "60", "600"};
+		String[] D_Maleficent = {"D-Maleficent", "9", "900", "950", "85", "900"};
+		String[] TheWeatherbe = {"TheWeatherbe", "8", "800", "900", "80",  "800"};
 		
 		Dragons.add(Desghidorrah);
 		Dragons.add(Chrysophylax);
@@ -62,16 +66,16 @@ public class QuestInfo {
 		
 		// Add Exoskeletons Items
 		//Name/level/damage/defense/dodge chance
-		String[] Cyrrollalee = {"Cyrrollalee", "7", "700", "800", "75"};
-		String[] Brandobaris = {"Brandobaris", "3", "350", "450", "30"};
-		String[] BigBad_Wolf = {"BigBad-Wolf", "1", "150", "250", "15"};
-		String[] WickedWitch = {"WickedWitch", "2", "250", "350", "25"};
-		String[] Aasterinian = {"Aasterinian", "4", "400", "500", "45"};
-		String[] Chronepsish = {"Chronepsish", "6", "650", "750", "60"};
-		String[] Kiaransalee = {"Kiaransalee", "8", "850", "950", "85"};
-		String[] St_Shargaas = {"St-Shargaas", "5", "550", "650", "55"};
-		String[] Merrshaullk = {"Merrshaullk", "10", "1000", "900", "55"};
-		String[] St_Yeenoghu = {"St-Yeenoghu", "9", "950", "850", "90"};
+		String[] Cyrrollalee = {"Cyrrollalee", "7", "700", "800", "75", "700"};
+		String[] Brandobaris = {"Brandobaris", "3", "350", "450", "30", "300"};
+		String[] BigBad_Wolf = {"BigBad-Wolf", "1", "150", "250", "15", "100"};
+		String[] WickedWitch = {"WickedWitch", "2", "250", "350", "25", "200"};
+		String[] Aasterinian = {"Aasterinian", "4", "400", "500", "45", "400"};
+		String[] Chronepsish = {"Chronepsish", "6", "650", "750", "60", "600"};
+		String[] Kiaransalee = {"Kiaransalee", "8", "850", "950", "85", "800"};
+		String[] St_Shargaas = {"St-Shargaas", "5", "550", "650", "55", "500"};
+		String[] Merrshaullk = {"Merrshaullk", "10", "1000", "900", "55", "1000"};
+		String[] St_Yeenoghu = {"St-Yeenoghu", "9", "950", "850", "90", "900"};
 		
 		Exoskeletons.add(Cyrrollalee);
 		Exoskeletons.add(Brandobaris);
@@ -86,10 +90,10 @@ public class QuestInfo {
 
 		// Add FireSpells
 		//Name/cost/required level/damage/mana cost
-		String[] Flame_Tornado = {"Flame_Tornado", "700", "4", "850", "300"};
-		String[] Breath_of_Fire = {"Breath_of_Fire", "350", "1", "450", "100"};
-		String[] Heat_Wave = {"Heat_Wave", "450", "2", "600", "150"};
-		String[] Lava_Commet = {"Lava_Commet", "800", "7", "1000", "550"};
+		String[] Flame_Tornado = {"Flame_Tornado", "700", "4", "850", "300", "f"};
+		String[] Breath_of_Fire = {"Breath_of_Fire", "350", "1", "450", "100", "f"};
+		String[] Heat_Wave = {"Heat_Wave", "450", "2", "600", "150", "f"};
+		String[] Lava_Commet = {"Lava_Commet", "800", "7", "1000", "550", "f"};
 		
 		FireSpells.add(Flame_Tornado);
 		FireSpells.add(Breath_of_Fire);
@@ -97,10 +101,10 @@ public class QuestInfo {
 		FireSpells.add(Lava_Commet);
 		
 		// Add IceSpells
-		String[] Snow_Canon = {"Snow_Canon", "500", "2", "650", "250"};
-		String[] Ice_Blade = {"Ice_Blade", "250", "1", "450", "100"};
-		String[] Frost_Blizzard = {"Frost_Blizzard", "750", "5", "850", "350"};
-		String[] Arctic_storm = {"Arctic_storm", "700", "6", "800", "300"};
+		String[] Snow_Canon = {"Snow_Canon", "500", "2", "650", "250", "i"};
+		String[] Ice_Blade = {"Ice_Blade", "250", "1", "450", "100", "i"};
+		String[] Frost_Blizzard = {"Frost_Blizzard", "750", "5", "850", "350", "i"};
+		String[] Arctic_storm = {"Arctic_storm", "700", "6", "800", "300", "i"};
 		
 		IceSpells.add(Snow_Canon);
 		IceSpells.add(Ice_Blade);
@@ -108,10 +112,10 @@ public class QuestInfo {
 		IceSpells.add(Arctic_storm);
 
 		// Add LightningSpells
-		String[] LightningDagger = {"LightningDagger", "400", "1", "500", "150"};
-		String[] Thunder_Blast = {"Thunder_Blast", "750", "4", "950", "400"};
-		String[] Electric_Arrows = {"Electric_Arrows", "550", "5", "650", "200"};
-		String[] Spark_Needles = {"Spark_Needles", "500", "2", "600", "200"};
+		String[] LightningDagger = {"LightningDagger", "400", "1", "500", "150", "l"};
+		String[] Thunder_Blast = {"Thunder_Blast", "750", "4", "950", "400", "l"};
+		String[] Electric_Arrows = {"Electric_Arrows", "550", "5", "650", "200", "l"};
+		String[] Spark_Needles = {"Spark_Needles", "500", "2", "600", "200", "l"};
 		
 		LightningSpells.add(LightningDagger);
 		LightningSpells.add(Thunder_Blast);
@@ -119,11 +123,11 @@ public class QuestInfo {
 		LightningSpells.add(Spark_Needles);
 		
 		// Add Paladins
-		//Name/mana/strength/agility/dexterity/starting money/starting experience
-		String[] Solonor_Thelandira = {"Solonor_Thelandira", "300", "750", "650", "700", "2500", "7"};
-		String[] Sehanine_Moonbow = {"Sehanine_Moonbow", "300", "750", "700", "700", "2500", "7"};
-		String[] Skoraeus_Stonebones = {"Skoraeus_Stonebones", "250", "650", "600", "350", "2500", "4"};
-		String[] Garl_Glittergold = {"Garl_Glittergold", "100", "600", "500", "400", "2500", "5"};
+		//Name/mana/strength/agility/dexterity/starting money/starting experience/HP
+		String[] Solonor_Thelandira = {"Solonor_Thelandira", "300", "750", "650", "700", "2500", "7", "700", "0"};
+		String[] Sehanine_Moonbow = {"Sehanine_Moonbow", "300", "750", "700", "700", "2500", "7", "700", "0"};
+		String[] Skoraeus_Stonebones = {"Skoraeus_Stonebones", "250", "650", "600", "350", "2500", "4", "400", "0"};
+		String[] Garl_Glittergold = {"Garl_Glittergold", "100", "600", "500", "400", "2500", "5", "500", "0"};
 		 
 		Paladins.add(Solonor_Thelandira);
 		Paladins.add(Sehanine_Moonbow);
@@ -148,10 +152,10 @@ public class QuestInfo {
 		
 		// Add Sorcerers
 		//Name/mana/strength/agility/dexterity/starting money/starting experience
-		String[] Ryan_Glittergold = {"Ryan_Glittergold", "700", "550", "600", "500", "2500", "7"};
-		String[] Rillifane_Rallathil = {"Rillifane_Rallathil", "1300", "750", "450", "500", "2500", "9"};
-		String[] Segojan_Earthcaller = {"Segojan_Earthcaller", "900", "800", "500", "650", "2500", "5"};
-		String[] Skors_Stones = {"Skors_Stones", "800", "850", "600", "450", "2500", "6"};
+		String[] Ryan_Glittergold = {"Ryan_Glittergold", "700", "550", "600", "500", "2500", "7", "700", "0"};
+		String[] Rillifane_Rallathil = {"Rillifane_Rallathil", "1300", "750", "450", "500", "2500", "9", "900", "0"};
+		String[] Segojan_Earthcaller = {"Segojan_Earthcaller", "900", "800", "500", "650", "2500", "5", "500", "0"};
+		String[] Skors_Stones = {"Skors_Stones", "800", "850", "600", "450", "2500", "6", "600", "0"};
 		
 		Sorcerers.add(Ryan_Glittergold);
 		Sorcerers.add(Rillifane_Rallathil);
@@ -160,16 +164,16 @@ public class QuestInfo {
 		
 		// Add Spirits
 		//Name/level/damage/defense/dodge chance
-		String[] Andrealphus = {"Andrealphus", "2", "600", "500", "40"};
-		String[] Aim_Haborym = {"Aim-Haborym", "1", "450", "350", "35"};
-		String[] Andromalius = {"Andromalius", "3", "550", "450", "25"};
-		String[] Chiang_shih = {"Chiang-shih", "4", "700", "600", "40"};
-		String[] FallenAngel = {"FallenAngel", "5", "800", "700", "50"};
-		String[] Ereshkigall = {"Ereshkigall", "6", "950", "450", "35"};
-		String[] Melchiresas = {"Melchiresas", "7", "350", "150", "75"};
-		String[] Jormunngand = {"Jormunngand", "8", "600", "900", "20"};
-		String[] Rakkshasass = {"Rakkshasass", "9", "550", "600", "35"};
-		String[] Taltecuhtli = {"Taltecuhtli", "10", "300", "200", "50"};
+		String[] Andrealphus = {"Andrealphus", "2", "600", "500", "40", "200"};
+		String[] Aim_Haborym = {"Aim-Haborym", "1", "450", "350", "35", "100"};
+		String[] Andromalius = {"Andromalius", "3", "550", "450", "25", "300"};
+		String[] Chiang_shih = {"Chiang-shih", "4", "700", "600", "40", "400"};
+		String[] FallenAngel = {"FallenAngel", "5", "800", "700", "50", "500"};
+		String[] Ereshkigall = {"Ereshkigall", "6", "950", "450", "35", "600"};
+		String[] Melchiresas = {"Melchiresas", "7", "350", "150", "75", "700"};
+		String[] Jormunngand = {"Jormunngand", "8", "600", "900", "20", "800"};
+		String[] Rakkshasass = {"Rakkshasass", "9", "550", "600", "35", "900"};
+		String[] Taltecuhtli = {"Taltecuhtli", "10", "300", "200", "50", "1000"};
 		
 		Spirits.add(Andrealphus);
 		Spirits.add(Aim_Haborym);
@@ -184,10 +188,10 @@ public class QuestInfo {
 		
 		// Add Warriors
 		//Name/mana/strength/agility/dexterity/starting money/starting experience
-		String[] Gaerdal_Ironhand = {"Gaerdal_Ironhand", "100", "700", "500", "600", "1354", "7"};
-		String[] Sejuaine_Monnbow = {"Sejuaine_Monnbow", "600", "700", "800", "500", "2500", "8"};
-		String[] Muamman_Duathall = {"Muamman_Duathall", "300", "900", "500", "750", "2546", "6"};
-		String[] Flandal_Steelskin = {"Flandal_Steelskin", "200", "750", "650", "700", "2500", "7"};
+		String[] Gaerdal_Ironhand = {"Gaerdal_Ironhand", "100", "700", "500", "600", "1354", "7", "700", "0"};
+		String[] Sejuaine_Monnbow = {"Sejuaine_Monnbow", "600", "700", "800", "500", "2500", "8", "800", "0"};
+		String[] Muamman_Duathall = {"Muamman_Duathall", "300", "900", "500", "750", "2546", "6", "600", "0"};
+		String[] Flandal_Steelskin = {"Flandal_Steelskin", "200", "750", "650", "700", "2500", "7", "700", "0"};
 		
 		Warriors.add(Gaerdal_Ironhand);
 		Warriors.add(Sejuaine_Monnbow);
@@ -225,7 +229,7 @@ public class QuestInfo {
 	}
 	
 	public String[] getArmor(int i) {
-		System.out.printf("%s: %s %s %s %n", Armory.get(i)[0], Armory.get(i)[1], Armory.get(i)[2], Armory.get(i)[3]);
+//		System.out.printf("%s: %s %s %s %n", Armory.get(i)[0], Armory.get(i)[1], Armory.get(i)[2], Armory.get(i)[3]);
 		return Armory.get(i);
 	}
 	
@@ -325,12 +329,12 @@ public class QuestInfo {
 		System.out.println("\nChoose a paladin, enter the number corresponding to the hero");
 		for (int i = 0; i < Paladins.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %s %s %n", Paladins.get(i)[0], Paladins.get(i)[1], Paladins.get(i)[2], Paladins.get(i)[3], Paladins.get(i)[4], Paladins.get(i)[5], Paladins.get(i)[6]);
+			System.out.printf("%s: %s %s %s %s %s %s %s %s %n", Paladins.get(i)[0], Paladins.get(i)[1], Paladins.get(i)[2], Paladins.get(i)[3], Paladins.get(i)[4], Paladins.get(i)[5], Paladins.get(i)[6], Paladins.get(i)[7], Paladins.get(i)[8]);
 		}
 	}
 	
 	public String[] getPaladins(int i) {
-		System.out.printf("%s: %s %s %s %s %s %s %n", Paladins.get(i)[0], Paladins.get(i)[1], Paladins.get(i)[2], Paladins.get(i)[3], Paladins.get(i)[4], Paladins.get(i)[5], Paladins.get(i)[6]);
+		System.out.printf("%s: %s %s %s %s %s %s %s %s %n", Paladins.get(i)[0], Paladins.get(i)[1], Paladins.get(i)[2], Paladins.get(i)[3], Paladins.get(i)[4], Paladins.get(i)[5], Paladins.get(i)[6], Paladins.get(i)[7], Paladins.get(i)[8]);
 		return Paladins.get(i);
 	}
 	
@@ -360,12 +364,12 @@ public class QuestInfo {
 		System.out.println("\nChoose a sorcerer, enter the number corresponding to the hero");
 		for (int i = 0; i < Sorcerers.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %s %s %n", Sorcerers.get(i)[0], Sorcerers.get(i)[1], Sorcerers.get(i)[2], Sorcerers.get(i)[3], Sorcerers.get(i)[4], Sorcerers.get(i)[5], Sorcerers.get(i)[6]);
+			System.out.printf("%s: %s %s %s %s %s %s %s %s %n", Sorcerers.get(i)[0], Sorcerers.get(i)[1], Sorcerers.get(i)[2], Sorcerers.get(i)[3], Sorcerers.get(i)[4], Sorcerers.get(i)[5], Sorcerers.get(i)[6], Sorcerers.get(i)[7], Sorcerers.get(i)[8]);
 		}
 	}
 	
 	public String[] getSorcerer(int i) {
-		System.out.printf("%s: %s %s %s %s %s %s %n", Sorcerers.get(i)[0], Sorcerers.get(i)[1], Sorcerers.get(i)[2], Sorcerers.get(i)[3], Sorcerers.get(i)[4], Sorcerers.get(i)[5], Sorcerers.get(i)[6]);
+		System.out.printf("%s: %s %s %s %s %s %s %s %s%n", Sorcerers.get(i)[0], Sorcerers.get(i)[1], Sorcerers.get(i)[2], Sorcerers.get(i)[3], Sorcerers.get(i)[4], Sorcerers.get(i)[5], Sorcerers.get(i)[6], Sorcerers.get(i)[7], Sorcerers.get(i)[8]);
 		return Sorcerers.get(i);
 	}
 	
@@ -395,12 +399,12 @@ public class QuestInfo {
 		System.out.println("\nChoose a warrior, enter the number corresponding to the hero");
 		for (int i = 0; i < Warriors.size(); i++) {
 			System.out.print(i+1 + " --> ");
-			System.out.printf("%s: %s %s %s %s %s %s %n", Warriors.get(i)[0], Warriors.get(i)[1], Warriors.get(i)[2], Warriors.get(i)[3], Warriors.get(i)[4], Warriors.get(i)[5], Warriors.get(i)[6]);
+			System.out.printf("%s: %s %s %s %s %s %s %s %s %n", Warriors.get(i)[0], Warriors.get(i)[1], Warriors.get(i)[2], Warriors.get(i)[3], Warriors.get(i)[4], Warriors.get(i)[5], Warriors.get(i)[6], Warriors.get(i)[7], Warriors.get(i)[8]);
 		}
 	}
 	
 	public String[] getWarrior(int i) {
-		System.out.printf("%s: %s %s %s %s %s %s %n", Warriors.get(i)[0], Warriors.get(i)[1], Warriors.get(i)[2], Warriors.get(i)[3], Warriors.get(i)[4], Warriors.get(i)[5], Warriors.get(i)[6]);
+		System.out.printf("%s: %s %s %s %s %s %s %s %s %n", Warriors.get(i)[0], Warriors.get(i)[1], Warriors.get(i)[2], Warriors.get(i)[3], Warriors.get(i)[4], Warriors.get(i)[5], Warriors.get(i)[6], Warriors.get(i)[7], Warriors.get(i)[8]);
 		return Warriors.get(i);
 	}
 	
@@ -418,7 +422,7 @@ public class QuestInfo {
 	}
 	
 	public String[] getWeapon(int i) {
-		System.out.printf("%s: %s %s %s %s %n", Weaponry.get(i)[0], Weaponry.get(i)[1], Weaponry.get(i)[2], Weaponry.get(i)[3], Weaponry.get(i)[4]);
+//		System.out.printf("%s: %s %s %s %s %n", Weaponry.get(i)[0], Weaponry.get(i)[1], Weaponry.get(i)[2], Weaponry.get(i)[3], Weaponry.get(i)[4]);
 		return Weaponry.get(i);
 	}
 	

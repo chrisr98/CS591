@@ -123,11 +123,11 @@ public class QuestInfo {
 		LightningSpells.add(Spark_Needles);
 		
 		// Add Paladins
-		//Name/mana/strength/agility/dexterity/starting money/starting experience/HP
-		String[] Solonor_Thelandira = {"Solonor_Thelandira", "300", "750", "650", "700", "2500", "7", "700", "0"};
-		String[] Sehanine_Moonbow = {"Sehanine_Moonbow", "300", "750", "700", "700", "2500", "7", "700", "0"};
-		String[] Skoraeus_Stonebones = {"Skoraeus_Stonebones", "250", "650", "600", "350", "2500", "4", "400", "0"};
-		String[] Garl_Glittergold = {"Garl_Glittergold", "100", "600", "500", "400", "2500", "5", "500", "0"};
+		//Name/mana/strength/agility/dexterity/starting money/LV/HP/EXP/class
+		String[] Solonor_Thelandira = {"Solonor_Thelandira", "300", "750", "650", "700", "2500", "7", "700", "0", "p"};
+		String[] Sehanine_Moonbow = {"Sehanine_Moonbow", "300", "750", "700", "700", "2500", "7", "700", "0", "p"};
+		String[] Skoraeus_Stonebones = {"Skoraeus_Stonebones", "250", "650", "600", "350", "2500", "4", "400", "0", "p"};
+		String[] Garl_Glittergold = {"Garl_Glittergold", "100", "600", "500", "400", "2500", "5", "500", "0", "p"};
 		 
 		Paladins.add(Solonor_Thelandira);
 		Paladins.add(Sehanine_Moonbow);
@@ -151,11 +151,11 @@ public class QuestInfo {
 		Potions.add(Ambrosia);
 		
 		// Add Sorcerers
-		//Name/mana/strength/agility/dexterity/starting money/starting experience
-		String[] Ryan_Glittergold = {"Ryan_Glittergold", "700", "550", "600", "500", "2500", "7", "700", "0"};
-		String[] Rillifane_Rallathil = {"Rillifane_Rallathil", "1300", "750", "450", "500", "2500", "9", "900", "0"};
-		String[] Segojan_Earthcaller = {"Segojan_Earthcaller", "900", "800", "500", "650", "2500", "5", "500", "0"};
-		String[] Skors_Stones = {"Skors_Stones", "800", "850", "600", "450", "2500", "6", "600", "0"};
+		//Name/mana/strength/agility/dexterity/starting money/LV/HP/EXP/class
+		String[] Ryan_Glittergold = {"Ryan_Glittergold", "700", "550", "600", "500", "2500", "7", "700", "0", "s"};
+		String[] Rillifane_Rallathil = {"Rillifane_Rallathil", "1300", "750", "450", "500", "2500", "9", "900", "0", "s"};
+		String[] Segojan_Earthcaller = {"Segojan_Earthcaller", "900", "800", "500", "650", "2500", "5", "500", "0", "s"};
+		String[] Skors_Stones = {"Skors_Stones", "800", "850", "600", "450", "2500", "6", "600", "0", "s"};
 		
 		Sorcerers.add(Ryan_Glittergold);
 		Sorcerers.add(Rillifane_Rallathil);
@@ -187,11 +187,11 @@ public class QuestInfo {
 		Spirits.add(Taltecuhtli);
 		
 		// Add Warriors
-		//Name/mana/strength/agility/dexterity/starting money/starting experience
-		String[] Gaerdal_Ironhand = {"Gaerdal_Ironhand", "100", "700", "500", "600", "1354", "7", "700", "0"};
-		String[] Sejuaine_Monnbow = {"Sejuaine_Monnbow", "600", "700", "800", "500", "2500", "8", "800", "0"};
-		String[] Muamman_Duathall = {"Muamman_Duathall", "300", "900", "500", "750", "2546", "6", "600", "0"};
-		String[] Flandal_Steelskin = {"Flandal_Steelskin", "200", "750", "650", "700", "2500", "7", "700", "0"};
+		//Name/mana/strength/agility/dexterity/starting money/LV/HP/EXP/class
+		String[] Gaerdal_Ironhand = {"Gaerdal_Ironhand", "100", "700", "500", "600", "1354", "7", "700", "0", "w"};
+		String[] Sejuaine_Monnbow = {"Sejuaine_Monnbow", "600", "700", "800", "500", "2500", "8", "800", "0", "w"};
+		String[] Muamman_Duathall = {"Muamman_Duathall", "300", "900", "500", "750", "2546", "6", "600", "0", "w"};
+		String[] Flandal_Steelskin = {"Flandal_Steelskin", "200", "750", "650", "700", "2500", "7", "700", "0", "w"};
 		
 		Warriors.add(Gaerdal_Ironhand);
 		Warriors.add(Sejuaine_Monnbow);

@@ -10,7 +10,6 @@ public class TheQuest extends CreateBoard implements BoardGame {
 
 	
 	private CreateBoard board = new CreateBoard();
-	private List<List<positionTTT>>  allWinningLines = new ArrayList<>();
 	private int row = 8;
 	private int column = 8;
 	private int size = row;
@@ -23,32 +22,42 @@ public class TheQuest extends CreateBoard implements BoardGame {
 	private positionTTT currentLoc;
 	private int previousState = 0;
 	private Hero heroSelect = new Hero();
-	private fightSequence fight;
+	private fightSequence fight = new fightSequence(players, questInf, board);
 	private static AccessMenu menu = new AccessMenu();
 	
 	public TheQuest() {
 		// TODO Auto-generated constructor stub\
 		board.createTicTacToeBoard(row, column);
 		currentLoc = board.boardTicTacToe.get(0);
+		//Make sure important stuff are reset at the beginnign of the game.
+		fight.resetDeadHeroList();
+		fight.resetEnemyList();
 		
 	}
 	
 	
 	// Checks to see if game is over and the win condition
 	@Override
-	public int isEnded(CreateBoard board) {
+	public boolean isEnded() {
 		// TODO Auto-generated method stub
 		
 		// Pseudo code remember to change
-		boolean playerDead = true;
-		if (!playerDead) {
-			System.out.println("Player Died");
-			return 0;
-		} 
-		else {
-			System.out.println("You exited game");
-			return 1;
+		boolean gameEnd = false;
+		ArrayList<String[]> allDead = new ArrayList<String[]>();
+		
+		for (int i = 0; i < players.totalHeroes(); i++) {
+			String[] hero = (players.getHero(i));
+			int HP = Integer.parseInt(hero[7]);
+			if(HP < 1) {
+				allDead.add(hero);
+			}
 		}
+		
+		if(allDead.size() == players.totalHeroes()) {
+			gameEnd = true;
+		}
+		
+		return gameEnd;
 	}
 
 
@@ -141,7 +150,7 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		//Name/mana/strength/agility/dexterity/starting money/starting experience
 
 		
-		System.out.println("\nHero # -->_______Name________: | Mana | Strength | Agility | Dexterity | Money | EXP | HP");
+		System.out.println("\nHero # -->_______Name________: | Mana | Strength | Agility | Dexterity | Money | LV | HP");
 		System.out.println("_______________________________________________________________");
 		players.printHeroList();
 		System.out.println("_______________________________________________________________");
@@ -156,7 +165,6 @@ public class TheQuest extends CreateBoard implements BoardGame {
 		
 		//Continuously get user to enter next input
 		while((userInput = scan.next())!=null) {
-		
 			positionTTT tempLoc = currentLoc;
 			int tempState = previousState;
 			
@@ -192,8 +200,30 @@ public class TheQuest extends CreateBoard implements BoardGame {
 			if(valid == true) {
 				board.updateTiles(currentLoc, tempLoc, tempState);
 			}
+			
+			if(isEnded()) {
+				System.out.println("All heroes are dead.");
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			}
 				
 			board.printBoard();
+			
+			/*
+			 * Handle game end here if is ended doesn't work
+			 
+			if(valid == 1) {
+				board.updateTiles(currentLoc, tempLoc, tempState);
+			} else if (valid == -100) {
+				System.out.println("\n THANK YOU FOR PLAYING!");
+				break;
+			}
+			*/
 			
 			
 			
@@ -394,7 +424,7 @@ public class TheQuest extends CreateBoard implements BoardGame {
 				break;
 			}
 			
-			fight.printEnemy();
+			
 			int res = fight.roundFight();
 			if(res == 100) {
 				menu.accessInventory();
@@ -405,17 +435,23 @@ public class TheQuest extends CreateBoard implements BoardGame {
 			} else {
 				System.out.println("\nNext Round!");
 			}
+			fight.printEnemy();
 			isEnemyAlive = !fight.allEnemyDead();
 			isHeroAlive = !fight.allAllyDead();
 			if(isHeroAlive == false) {
 				System.out.println("\nYou lost!");
-				break;
+				return - 100;
 			} else if(isEnemyAlive == false) {
 				System.out.println("\nYou won!");
 				break;
 			}
 		} while (isHeroAlive == true || isEnemyAlive == true);
+		
 		fight.resetEnemyList();
-		return 0;
+		fight.endOfFightReward();
+		fight.reviveHero();
+		fight.resetDeadHeroList();
+		
+		return 1;
 	}
 }

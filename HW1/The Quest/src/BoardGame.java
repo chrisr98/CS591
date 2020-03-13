@@ -5,7 +5,7 @@ import java.util.List;
 public interface BoardGame {
 	
 	// A method to check if the game is over
-	int isEnded(CreateBoard board);
+	boolean isEnded();
 	// A method to move player
 	boolean playerMoves(String move, List<positionTTT> board);
 	// A method to validate the plater move 

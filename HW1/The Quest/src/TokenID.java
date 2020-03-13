@@ -56,6 +56,11 @@ public class TokenID {
 	public void setHero(int index, String[] hero) {
 		playerStats.set(index, hero);
 	}
+	
+	//set a hero
+	public void setHeroList(ArrayList<String[]> hero) {
+		playerStats = hero;
+	}
 
 	// Print list of heroes
 	public void printHeroList() {
